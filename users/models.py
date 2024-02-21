@@ -23,4 +23,3 @@ class UserAddress(models.Model):
         return f'Address of {self.user.username}'
 
 # ..
-#
