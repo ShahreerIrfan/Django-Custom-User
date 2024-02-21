@@ -22,4 +22,3 @@ class UserAddress(models.Model):
     def __str__(self) -> str:
         return f'Address of {self.user.username}'
 
-#
