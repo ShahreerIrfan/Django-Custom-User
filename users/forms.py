@@ -23,6 +23,12 @@ class UserProfileForm(UserCreationForm):
         model = User
         fields = ['username', 'password1', 'password2', 'first_name', 'last_name', 'email', 'gender', 'postalCode', 'birthDate', 'streetAddress', 'country', 'bloodGroup', 'image'] 
 
+    def __init__(self, *args, **kwargs):
+        super(UserProfileForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Sign Up'))  # Add the submit button
+
     def save(self, commit=True):
         user = super().save(commit=False)
         if commit:
@@ -49,4 +55,3 @@ class UserProfileForm(UserCreationForm):
                 image=image,
             )
         return user
-
